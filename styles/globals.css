@@ -33,6 +33,15 @@ font-family: 'Gruppo', cursive; */
     border-bottom: 1px solid rgba(255, 255, 255, 0.404);
   }
 
+  .loading {
+    opacity : 0;
+    transition : opacity 0.2s ease-in-out;
+  }
+  .loaded {
+    opacity : 1;
+    transition : opacity 0.2s ease-in-out;
+  }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
