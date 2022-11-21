@@ -4,8 +4,6 @@ import Link from "next/link"
 const Header = () => {
     const { data: session, status } = useSession();
 
-    
-
     return (
     <nav className={`flex justify-center gap-10 p-5 text-white mx-auto z-10`}>
         <div className="max-w-7xl flex-1 flex justify-between gap-10">
