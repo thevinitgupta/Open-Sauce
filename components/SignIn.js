@@ -2,7 +2,7 @@ import {useSession, signIn, signOut}  from "next-auth/react"
 import {useRouter} from "next/router"
 import Image from "next/image";
 import { useState } from "react"
-import Github from "../public/github.png";
+import Google from "../public/google.svg";
 
 const SignIn = () => {
     const { data: session, status } = useSession();
@@ -12,9 +12,9 @@ const SignIn = () => {
         else setActiveTab("login");
     }
 
-    const handleSignup = () => {
+    const handleSignup = async () => {
         const data = signIn();
-        
+        const prof = await data.json();
     }
 
     let router= useRouter()
@@ -40,7 +40,7 @@ const SignIn = () => {
                             Welcome back, let's start contributing. <br/>
                             After you Sign In 👇
                         </p>
-                        <div className="w-[60%] flex justify-center items-center gap-5 text-2xl object-contain bg-[#757EC7] p-4 rounded-full hover:cursor-pointer" onClick={() => signIn()}> <Image src={Github.src} height={22} width={30}/> Sign In with Github</div>
+                        <div className="w-[65%] flex justify-center items-center gap-5 text-2xl object-contain bg-[#757EC7] p-4 rounded-full hover:cursor-pointer" onClick={() => signIn()}> <Image src={Google.src} height={32} width={32} /> Sign In with Google</div>
                     </div>
                     :
                     <div className="text-white w-full h-full flex flex-col items-center justify-evenly" id="login">

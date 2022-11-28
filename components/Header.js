@@ -1,8 +1,13 @@
 import {useSession, signOut}  from "next-auth/react"
 import Link from "next/link"
+import { useEffect } from "react";
 
 const Header = () => {
     const { data: session, status } = useSession();
+
+    useEffect(() => {
+        console.log(session)
+    },[session])
 
     return (
     <nav className={`flex justify-center gap-10 p-5 text-white mx-auto z-10`}>
@@ -23,8 +28,8 @@ const Header = () => {
                 }
 
                 {
-                session ?
-                    <div onClick={()=>{signOut()}} className={`${!session || status!=='authenticated' ? "loading" : "loaded"}`}>Sign Out</div>
+                session ? 
+                        <div onClick={()=>{signOut()}} className={`${!session || status!=='authenticated' ? "loading" : "loaded"}`}>Sign Out</div>
                     :
                     <Link href="/auth">
                         <div className={`bg-[#8432ff] py-2 px-8 text-white rounded-full font-bold hover:bg-[#fd29ef] ${!session && status==='loading' ? "loading" : "loaded"}`}>Sign In</div>
